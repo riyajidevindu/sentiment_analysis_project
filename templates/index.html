@@ -1,0 +1,55 @@
+<html lang="en">
+<link>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}"></link>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>App</title>
+</head>
+
+<body>
+
+  <div class="split left">
+    <div class="centered">
+      <img src="../static/products/headset.jpg" alt="">
+    </div>
+  </div>
+
+  <div class="split right">
+    <div class="container mt-5 mb-5">
+      <div class="d-flex justify-content-center row">
+        <div class="d-flex flex-column col-md-8">
+          <div>
+            <label for="">Positive Reviews : {{data.positive}}</label>
+          </div>
+
+          <div>
+            <label for="">Negative Reviews : {{data.negative}}</label>
+          </div>
+
+          <div>
+            <form method="post">
+              <textarea name="text"></textarea>
+              <input type="submit">
+            </form>
+          </div>
+
+          <div class="coment-bottom bg-white p-2 px-4">
+            {% for review in data.reviews %}
+            <hr/>
+              <div
+                  class="commented-section mt-2">
+                  <div class="d-flex flex-row align-items-center commented-user">
+                      </div>
+                      <div class="text-nowrap bd-highlight"><span>{{ review }}</span></div>
+                      <hr/>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
