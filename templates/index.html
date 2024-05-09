@@ -8,41 +8,46 @@
 </head>
 
 <body>
+  <!-- Container with margin -->
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="split left">
+        <div class="centered">
+          <img src="../static/products/headset.jpg" alt="">
+        </div>
+      </div>
 
-  <div class="split left">
-    <div class="centered">
-      <img src="../static/products/headset.jpg" alt="">
-    </div>
-  </div>
-
-  <div class="split right">
-    <div class="container mt-5 mb-5">
-      <div class="d-flex justify-content-center row">
-        <div class="d-flex flex-column col-md-8">
-          <div>
-            <label for="">Positive Reviews : {{data.positive}}</label>
+      <div class="split right">
+        <div class="col-md-8 mx-auto">
+          <div class="mb-3">
+            <label for="positiveReviews">Positive Reviews:</label>
+            <span id="positiveReviews">{{data.positive}}</span>
           </div>
 
-          <div>
-            <label for="">Negative Reviews : {{data.negative}}</label>
+          <div class="mb-3">
+            <label for="negativeReviews">Negative Reviews:</label>
+            <span id="negativeReviews">{{data.negative}}</span>
           </div>
 
-          <div>
+          <div class="mb-3">
             <form method="post">
-              <textarea name="text"></textarea>
-              <input type="submit">
+              <textarea class="form-control" name="text" rows="3"></textarea>
+              <button type="submit" class="btn btn-primary mt-2">Submit</button>
             </form>
           </div>
 
           <div class="coment-bottom bg-white p-2 px-4">
             {% for review in data.reviews %}
-            <hr/>
-              <div
-                  class="commented-section mt-2">
-                  <div class="d-flex flex-row align-items-center commented-user">
-                      </div>
-                      <div class="text-nowrap bd-highlight"><span>{{ review }}</span></div>
-                      <hr/>
+            <div class="commented-section mt-2">
+              <div class="commented-user">
+                <!-- User Avatar (if available) -->
+                <!-- <img src="user-avatar.jpg" alt="User Avatar"> -->
+
+                <!-- User Comment -->
+                <div class="text-nowrap bd-highlight">{{ review }}</div>
+              </div>
+              <hr>
+            </div>
             {% endfor %}
           </div>
 
@@ -50,6 +55,8 @@
       </div>
     </div>
   </div>
-
+  <!-- End container with margin -->
 </body>
+
+
 </html>
